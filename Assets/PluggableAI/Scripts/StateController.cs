@@ -22,6 +22,7 @@ public class StateController : MonoBehaviour
     public TankShooting Shooting { get; set; }
     public List<Transform> WayPointList { get; set; }
     public int NextWayPoint { get; set; }
+    public Transform ChaseTarget { get; set; }
 
     private bool aiActive;
     [SerializeField] private State currentState;

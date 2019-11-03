@@ -10,7 +10,7 @@ public class StateController : MonoBehaviour
 {
     public EnemyStats enemyStats;
     public Transform eyes;
-
+    [SerializeField] private State remainState;
 
     public State CurrentState
     {
@@ -64,6 +64,14 @@ public class StateController : MonoBehaviour
         {
             Gizmos.color = CurrentState.SceneGizmoColor;
             Gizmos.DrawWireSphere(eyes.position, enemyStats.lookSphereCastRadius);
+        }
+    }
+
+    public void TransitionToState(State nextState)
+    {
+        if (currentState != nextState)
+        {
+            currentState = nextState;
         }
     }
 }

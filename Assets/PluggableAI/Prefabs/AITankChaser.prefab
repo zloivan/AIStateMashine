@@ -10459,7 +10459,6 @@ MonoBehaviour:
   m_FullHealthColor: {r: 0, g: 1, b: 0, a: 1}
   m_ZeroHealthColor: {r: 1, g: 0, b: 0, a: 1}
   m_ExplosionPrefab: {fileID: 151086, guid: 6bc6d0dd8b8428e4ca316513f2cf13c6, type: 3}
-  canvas: {fileID: 22377202}
 --- !u!114 &11488788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10518,6 +10517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 7d36427061c3c3341b14c5ddc05b51b6, type: 2}
   eyes: {fileID: 4487636023762108}
+  remainState: {fileID: 11400000, guid: eac913a8b9e0ccd43ac9efbab754b783, type: 2}
   currentState: {fileID: 11400000, guid: cd076abd046d7f74b8042aed0f0e737e, type: 2}
 --- !u!1 &173936
 GameObject:

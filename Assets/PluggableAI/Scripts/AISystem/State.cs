@@ -8,6 +8,7 @@ namespace PluggableAI.Scripts
         [SerializeField] private Action[] actions;
         [SerializeField] private Color sceneGizmoColor = Color.gray;
 
+        [SerializeField] private Transition[] transitions;
         public Color SceneGizmoColor
         {
             get => sceneGizmoColor;
@@ -17,6 +18,7 @@ namespace PluggableAI.Scripts
         public void UpdateState(StateController controller)
         {
             DoActions(controller);
+            CheckTransitions(controller);
         }
 
         private void DoActions(StateController controller)
@@ -24,6 +26,24 @@ namespace PluggableAI.Scripts
             foreach (var action in actions)
             {
                 action.Act(controller);
+            }
+        }
+
+        private void CheckTransitions(StateController controller)
+        {
+            foreach (var transition in transitions)
+            {
+                var decisionsSucceeded = transition.Decision.Decide(controller);
+
+                // ReSharper disable once ConvertIfStatementToConditionalTernaryExpression
+                if (decisionsSucceeded)
+                {
+                    controller.TransitionToState(transition.TrueState);
+                }
+                else
+                {
+                    controller.TransitionToState(transition.FalseState);
+                }
             }
         }
     }

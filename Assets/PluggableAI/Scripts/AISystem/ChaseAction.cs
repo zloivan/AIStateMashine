@@ -14,6 +14,7 @@ namespace PluggableAI.Scripts
         {
             //move forward to target 
             controller.NavMeshAgent.destination = controller.ChaseTarget.position;
+            controller.NavMeshAgent.isStopped = false;
         }
     }
 }

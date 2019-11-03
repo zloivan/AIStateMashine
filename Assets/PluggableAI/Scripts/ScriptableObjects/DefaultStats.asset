@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 084144002a01e1f45bdf15db991af5c1, type: 3}
-  m_Name: DefaultEnemyStats
+  m_Name: DefaultStats
   m_EditorClassIdentifier: 
   moveSpeed: 1
   lookRange: 80

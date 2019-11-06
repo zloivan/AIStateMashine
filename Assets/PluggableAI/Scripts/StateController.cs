@@ -24,6 +24,8 @@ public class StateController : MonoBehaviour
     public int NextWayPoint { get; set; }
     public Transform ChaseTarget { get; set; }
 
+    public float StateTimeElapsed { get; set; }
+
     private bool aiActive;
     [SerializeField] private State currentState;
 
@@ -69,9 +71,21 @@ public class StateController : MonoBehaviour
 
     public void TransitionToState(State nextState)
     {
-        if (currentState != nextState)
+        if (nextState != remainState)
         {
             currentState = nextState;
+            OnExitState();
         }
+    }
+
+    private void OnExitState()
+    {
+        StateTimeElapsed = 0;
+    }
+
+    public bool CheckIfCountDownElapsed(float duration)
+    {
+        StateTimeElapsed += Time.deltaTime;
+        return StateTimeElapsed >= duration;
     }
 }
